@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Work_Sans, Space_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Work_Sans, Space_Mono, Gochi_Hand } from "next/font/google";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -21,6 +22,13 @@ const spaceMono = Space_Mono({
   subsets: ["latin"],
   weight: ["400", "700"],
   style: ["normal", "italic"],
+  display: "swap",
+});
+
+const gochiHand = Gochi_Hand({
+  variable: "--font-handwriting",
+  weight: ["400"],
+  subsets: ["latin"],
   display: "swap",
 });
 
@@ -46,14 +54,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${workSans.variable} ${spaceMono.variable} scroll-smooth`}
+      className={`${bricolage.variable} ${workSans.variable} ${spaceMono.variable} ${gochiHand.variable} scroll-smooth`}
     >
       <head>
-        {/* Gochi Hand (handwriting) — not in next/font subset */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap"
-        />
+
         {/* Material Symbols Outlined icon font */}
         <link
           rel="stylesheet"

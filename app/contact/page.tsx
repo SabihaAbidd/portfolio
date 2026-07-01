@@ -466,39 +466,7 @@ export default function ContactPage() {
         </footer>
       </main>
 
-      {/* Mobile nav */}
-      <div
-        className="md:hidden fixed bottom-0 left-0 right-0 z-50 py-3 px-6 flex justify-around items-center shadow-[0_-4px_10px_rgba(0,0,0,0.1)]"
-        style={{ backgroundColor: "#f0eee7" }}
-      >
-        {[
-          { icon: "home",       href: "/" },
-          { icon: "person",     href: "/about" },
-          { icon: "mail",       href: "/contact", active: true },
-          { icon: "folder",     href: "/projects" },
-          { icon: "settings",   href: "#" },
-        ].map((item) => (
-          <a
-            key={item.icon}
-            href={item.href}
-            className="flex flex-col items-center gap-1"
-            style={{ color: item.active ? "#695680" : "#4a454d", opacity: item.active ? 1 : 0.7 }}
-          >
-            {item.active ? (
-              <div
-                className="p-2 rounded-lg -translate-y-4 shadow-lg"
-                style={{ backgroundColor: "#b8a2d1" }}
-              >
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  {item.icon}
-                </span>
-              </div>
-            ) : (
-              <span className="material-symbols-outlined">{item.icon}</span>
-            )}
-          </a>
-        ))}
-      </div>
+      <MobileNav activePage="contact" />
     </div>
   );
 }
